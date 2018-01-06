@@ -10,6 +10,8 @@
   },
   "devDependencies": {},
   "scripts": {
+    "debug": "node src/ethConnector.js",
+    "eth-server": "node src/ethServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
