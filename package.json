@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
     "ganache-cli": "^6.0.3",
     "solc": "^0.4.19",
     "web3": "^0.20.0"
   },
   "devDependencies": {},
   "scripts": {
-    "debug": "node src/ethConnector.js",
+    "start": "node src/server.js",
     "eth-server": "node src/ethServer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
