@@ -7,7 +7,7 @@ const { candidates } = require('./config');
 
 const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
 
-const contractCode = fs.readFileSync('./src/Voting.sol').toString();
+const contractCode = fs.readFileSync(path.join(__dirname, 'Voting.sol')).toString();
 const compiledCode = solc.compile(contractCode);
 const { interface, bytecode } = compiledCode.contracts[':Voting'];
 const VotingContract = web3.eth.contract(JSON.parse(interface));
@@ -15,7 +15,7 @@ const VotingContract = web3.eth.contract(JSON.parse(interface));
 module.exports = () => deploy()
     .then(contract => {
         console.log(`contract deployed at ${contract.address}`);
-        return { abi: contract.abi, address: contract.address };
+        return { abi: contract.abi, address: contract.address, account: web3.eth.accounts[0] };
     });
 
 function deploy(){
@@ -32,4 +32,3 @@ function deploy(){
         });
     });
 } 
-
